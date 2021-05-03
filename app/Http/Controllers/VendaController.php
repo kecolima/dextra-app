@@ -3,21 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Venda;
 
 class VendaController extends Controller
 {
     public function create(){
         $vendas = Venda::all();
-        return view('vendas.create', ['vendas' => $vendas]);
+        return view('vendas.criar', ['vendas' => $vendas]);
     }
 
     public function store(Request $request){
-        Cargo::create([
+        Venda::create([
             'nome' => $request->nome,
             'id_departamento' => $request->departamento,
             'salarioBase' => $request->salarioBase,
         ]);
-        return redirect()->route('ver_cargo');
+        return redirect()->route('ver_venda');
     }
 
     public function show(Request $request){
@@ -26,23 +27,23 @@ class VendaController extends Controller
     }
 
     public function destroy($id){
-        $cargo = Cargo::findOrFail($id);
-        $cargo->delete();
-        return redirect()->route('ver_cargo');
+        $venda = Venda::findOrFail($id);
+        $venda->delete();
+        return redirect()->route('ver_venda');
     }
 
     public function edit($id){
-        $cargo = Cargo::findOrFail($id);
-        return view('cargos.editar', ['cargo' => $cargo]);
+        $venda = Venda::findOrFail($id);
+        return view('vendas.editar', ['venda' => $venda]);
     }
 
     public function update(Request $request){
-        $cargo = Cargo::findOrFail($request->id);
-        $cargo->update([
+        $venda = Venda::findOrFail($request->id);
+        $venda->update([
             'nome' => $request->nome,
             'id_departamento' => $request->departamento,
             'salarioBase' => $request->salarioBase,
         ]);
-        return redirect()->route('ver_cargo');
+        return redirect()->route('ver_venda');
     }
 }

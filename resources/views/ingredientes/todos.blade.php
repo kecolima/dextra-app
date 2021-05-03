@@ -15,23 +15,8 @@
                     </div>
                 @endif
 
-                @foreach($lanches as $lanche)
-                    @php
-                        $nome[$lanche->id] = '';
-                    @endphp
-                    @foreach($promocoes as $promocao)
-                        @if  ($promocao->id_promocao == $lanche->id)
-                            @php
-                                $nome[$lanche->id] = $promocao->nome_promocao;
-                            @endphp
-                        @endif
-                    @endforeach
-                    {{$nome[$lanche->id]}}
-                @endforeach
-
-
-                <h1>Lanches</h1>
-                <a class="btn btn-small btn-primary" href="/lanche/novo">Cadastrar</a>
+                <h1>Ingredientes</h1>
+                <a class="btn btn-small btn-primary" href="/ingrediente/novo">Cadastrar</a>
                 <hr>
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
@@ -44,35 +29,34 @@
                         </div>
                     @endif
                     @php
-                        $totalLanches = 0;
+                        $totalIngredientes = 0;
                     @endphp
+
                 <table width="100%" class="table table-striped table-hover">
                     <thead class="thead-dark table-dark">
                         <tr>
-                            <th>Lanche</th>
-                            <th>Ingredientes</th>
-                            <th>Tipo de Promoção</th>
+                            <th>Ingrediente</th>
+                            <th>Quantidade</th>
                             <th>Valor</th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
-                    @foreach($lanches as $lanche)
+                    @foreach($ingredientes as $ingrediente)
                         <tr>
-                            <td>{{$lanche->nome}}</td>
-                            <td>{{$lanche->id_ingredientes}}</td>
-                            <td>{{$nome[$lanche->id]}}</td>
-                            <td>{{$lanche->valor}}</td>
-                            <td><a class="alert-link" style="color:#0000FF" href="{{ route('atualizar_lanche', ['id'=>$lanche->id])}}" title="Atualizar Lanche {{ $lanche->nome }}">Editar</a></td>
-                            <td><a class="alert-link" style="color:#FF0000" href="{{ route('excluir_lanche', ['id'=>$lanche->id])}}" title="Excluir Lanche {{ $lanche->nome }}">Excluir</a></td>
+                            <td>{{$ingrediente->nome}}</td>
+                            <td>{{$ingrediente->quantidade}}</td>
+                            <td>{{$ingrediente->valor}}</td>
+                            <td><a class="alert-link" style="color:#0000FF" href="{{ route('atualizar_ingrediente', ['id'=>$ingrediente->id])}}" title="Atualizar Ingrediente {{ $ingrediente->nome }}">Editar</a></td>
+                            <td><a class="alert-link" style="color:#FF0000" href="{{ route('excluir_ingrediente', ['id'=>$ingrediente->id])}}" title="Excluir Ingrediente {{ $ingrediente->nome }}">Excluir</a></td>
                         </tr>
                         @php
-                            $totalLanches++;
+                            $totalIngredientes++;
                         @endphp
                     @endforeach
                 </table>
                 <table>
-                    <tr><th>Total de Lanches: {{$totalLanches}}</th></tr>
+                    <tr><th>Total de Ingredientes: {{$totalIngredientes}}</th></tr>
                 </table>
             </div>
         </div>

@@ -5,16 +5,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Lanche') }}</div>
+                <div class="card-header">{{ __('Ingrediente') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('salvar_lanche') }}">
+                    <form method="POST" action="{{ route('atualizar_ingrediente', ['id' => $ingrediente->id]) }}">
                         @csrf
 
                         <div class="form-group row">
                             <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
+                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{$ingrediente->nome}}" required autocomplete="nome" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -25,26 +25,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="ingrediente" class="col-md-4 col-form-label text-md-right">{{ __('Ingredientes') }}</label>
+                            <label for="quantidade" class="col-md-4 col-form-label text-md-right">{{ __('Quantidade') }}</label>
 
                             <div class="col-md-6">
-                                <input id="ingrediente" type="text" class="form-control @error('ingrediente') is-invalid @enderror" name="ingrediente" value="{{ old('ingrediente') }}" required autocomplete="ingrediente">
+                                <input id="quantidade" type="text" class="form-control @error('quantidade') is-invalid @enderror" name="quantidade" value="{{$ingrediente->quantidade}}" required autocomplete="quantidade">
 
-                                @error('ingrediente')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="promocao" class="col-md-4 col-form-label text-md-right">{{ __('Promoção') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="promocao" type="text" class="form-control @error('promocao') is-invalid @enderror" name="promocao" required autocomplete="promocao">
-
-                                @error('password')
+                                @error('quantidade')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -56,7 +42,7 @@
                             <label for="valor" class="col-md-4 col-form-label text-md-right">{{ __('Valor') }}</label>
 
                             <div class="col-md-6">
-                                <input id="valor" type="text" class="form-control" name="valor" required autocomplete="valor">
+                                <input id="valor" type="text" class="form-control" name="valor" value="{{$ingrediente->valor}}" required autocomplete="valor">
                             </div>
                         </div>
 
