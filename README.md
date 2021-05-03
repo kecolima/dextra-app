@@ -1,62 +1,57 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Hamburgueria
+Oi Tudo bem?
 
-## About Laravel
+Conforme falamos para avançar no processo seletivo, nossa próxima etapa é uma avaliação técnica do seu código. \o/
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Descrição
+Somos uma startup do ramo de alimentos e precisamos de uma aplicação web para gerir nosso negócio. Nossa especialidade é a venda de lanches, de modo que alguns lanches são opções de cardápio e outros podem conter ingredientes personalizados.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+A seguir, apresentamos a lista de ingredientes disponíveis:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Ingredientes	Valor
+Alface	R$ 0,40
+Bacon	R$ 2,00
+Hambúrguer de carne	R$ 3,00
+Ovo	R$ 0,80
+Queijo	R$ 1,50
+Segue as opções de cardápio e seus respectivos ingredientes:
 
-## Learning Laravel
+Lanche	Ingredientes
+X-Bacon	Bacon, hambúrguer de carne e queijo
+X-Burger	Hambúrguer de carne e queijo
+X-Egg	Ovo, hambúrguer de carne e queijo
+X-Egg Bacon	Ovo, bacon, hambúrguer de carne e queijo
+O valor de cada opção do cardápio é dado pela soma dos ingredientes que compõem o lanche. Além destas opções, o cliente pode personalizar seu lanche e escolher os ingredientes que desejar. Nesse caso, o preço do lanche também será calculado pela soma dos ingredientes.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Existe uma exceção à regra para o cálculo de preço, quando o lanche pertencer à uma promoção. A seguir, apresentamos a lista de promoções e suas respectivas regras de negócio:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Promoção	Regra de negócio
+Light	Se o lanche tem alface e não tem bacon, ganha 10% de desconto.
+Muita carne	A cada 3 porções de carne o cliente só paga 2. Se o lanche tiver 6 porções, ocliente pagará 4. Assim por diante...
+Muito queijo	A cada 3 porções de queijo o cliente só paga 2. Se o lanche tiver 6 porções, ocliente pagará 4. Assim por diante...
+Inflação	Os valores dos ingredientes são alterados com frequência e não gastaríamos que isso influenciasse nos testes automatizados.
+Critérios de completude
+O projeto deve ser entregue atendendo aos seguintes critérios:
 
-## Laravel Sponsors
+O server-side deve ser desenvolvido em uma linguagem que se sinta confortável em utilizar no backend.
+O client-side pode ser desenvolvido utilizando uma linguagem e/ou framework que se sinta confortável em utilizar no frontend.
+Deve possuir cobertura de testes automatizados para os seguintes pontos: Valor dos lanches de cardápio, regra para cálculo de preço e promoções.
+Não é necessário se preocupar com a autenticação dos usuários.Não é necessário persistir os dados em um banco, pode fazer armazenamento em memória.
+Entregáveis
+Você deve entregar um conjunto de artefatos, de acordo com o nível de complexidade que achar melhor. A seguir, os níveis de complexidade e seus respectivos entregáveis:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Fácil
+Implementação dos requisitos;
+Instruções para executar.
+Médio
+Implementação dos requisitos;
+Relatório de justificativas para escolha do design de código;
+Instruções para executar.
+Difícil
+Implementação dos requisitos;
+Relatório de justificativas para escolha do design de código;
+Os testes automatizados devem ser executados por algum modelo de integração contínua;
+O ambiente de execução da aplicação deve possuir um HTTP Proxying com nginx, redireciendo as requisições da porta 80 para o server-side.
+Ambiente virtualizado em Docker com scripts para execução
+O código deve estar em um repositório público
