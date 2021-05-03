@@ -46,7 +46,7 @@
                         <tr>
                             <td>{{$ingrediente->nome}}</td>
                             <td>{{$ingrediente->quantidade}}</td>
-                            <td>{{$ingrediente->valor}}</td>
+                            <td>R$ {{$ingrediente->valor}}</td>
                             <td><a class="alert-link" style="color:#0000FF" href="{{ route('atualizar_ingrediente', ['id'=>$ingrediente->id])}}" title="Atualizar Ingrediente {{ $ingrediente->nome }}">Editar</a></td>
                             <td><a class="alert-link" style="color:#FF0000" href="{{ route('excluir_ingrediente', ['id'=>$ingrediente->id])}}" title="Excluir Ingrediente {{ $ingrediente->nome }}">Excluir</a></td>
                         </tr>

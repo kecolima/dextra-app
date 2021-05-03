@@ -10,11 +10,13 @@
                     <form method="POST" action="{{ route('salvar_venda') }}">
                         @csrf
 
+                        @foreach($lanches as $lanche)
+                        {{$lanche->nome}}
                         <div class="form-group row">
-                            <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
+                            <label for="item" class="col-md-4 col-form-label text-md-right">Quantidade</label>
 
                             <div class="col-md-6">
-                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
+                                <input id="quantidade" type="text" class="form-control @error('quantidade') is-invalid @enderror" name="quantidade" value="{{ old('quantidade') }}" required autocomplete="quantidade" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -25,12 +27,16 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="ingrediente" class="col-md-4 col-form-label text-md-right">{{ __('Ingredientes') }}</label>
+                            <label for="item" class="col-md-4 col-form-label text-md-right">{{ __('Adicionais') }}</label>
 
                             <div class="col-md-6">
-                                <input id="ingrediente" type="text" class="form-control @error('ingrediente') is-invalid @enderror" name="ingrediente" value="{{ old('ingrediente') }}" required autocomplete="ingrediente">
-
-                                @error('ingrediente')
+                                @foreach($ingredientes as $ingrediente)
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                        <label class="form-check-label" for="inlineCheckbox1">{{$ingrediente->nome}}</label>
+                                    </div>
+                                @endforeach
+                                @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -40,10 +46,13 @@
 
                         <div class="form-group row">
                             <label for="promocao" class="col-md-4 col-form-label text-md-right">{{ __('Promoção') }}</label>
-
                             <div class="col-md-6">
-                                <input id="promocao" type="text" class="form-control @error('promocao') is-invalid @enderror" name="promocao" required autocomplete="promocao">
-
+                                <select required class="form-control" id="promocao" name="promocao">
+                                    <option value="">Promoção</option>
+                                    @foreach($promocoes as $promocao)
+                                        <option value="{{$promocao->nome}}">{{$promocao->nome}}</option>
+                                    @endforeach
+                                </select>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -51,6 +60,9 @@
                                 @enderror
                             </div>
                         </div>
+
+                    <hr>
+                    @endforeach
 
                         <div class="form-group row">
                             <label for="valor" class="col-md-4 col-form-label text-md-right">{{ __('Valor') }}</label>

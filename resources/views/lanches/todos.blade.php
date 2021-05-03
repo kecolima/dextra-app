@@ -60,7 +60,7 @@
                             <td>{{$lanche->nome}}</td>
                             <td>{{$lanche->id_ingredientes}}</td>
                             <td>{{$nome[$lanche->id]}}</td>
-                            <td>{{$lanche->valor}}</td>
+                            <td>R$ {{$lanche->valor}}</td>
                             <td><a class="alert-link" style="color:#0000FF" href="{{ route('atualizar_lanche', ['id'=>$lanche->id])}}" title="Atualizar Lanche {{ $lanche->nome }}">Editar</a></td>
                             <td><a class="alert-link" style="color:#FF0000" href="{{ route('excluir_lanche', ['id'=>$lanche->id])}}" title="Excluir Lanche {{ $lanche->nome }}">Excluir</a></td>
                         </tr>

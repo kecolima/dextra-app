@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Venda;
+use App\Models\Lanche;
+use App\Models\Promocao;
+use App\Models\Ingrediente;
 
 class VendaController extends Controller
 {
     public function create(){
         $vendas = Venda::all();
-        return view('vendas.criar', ['vendas' => $vendas]);
+        $lanches = Lanche::all();
+        $promocoes = Promocao::all();
+        $ingredientes = Ingrediente::all();
+        return view('vendas.criar', ['vendas' => $vendas, 'lanches' => $lanches, 'promocoes' => $promocoes, 'ingredientes' => $ingredientes]);
     }
 
     public function store(Request $request){
