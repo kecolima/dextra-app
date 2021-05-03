@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
                     <strong>Erros:</strong>

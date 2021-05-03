@@ -5,20 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Lanche;
+use App\Models\Ingrediente;
+use App\Models\Promocao;
 
 class LancheController extends Controller
 {
     public function create(){
-        //$departamentos = Departamento::all();
-
-        return view('lanches.criar');
+        $ingredientes = Ingrediente::all();
+        $promocoes = Promocao::all();
+        return view('lanches.criar',  ['ingredientes' => $ingredientes, 'promocoes' => $promocoes]);
     }
 
     public function store(Request $request){
+        $ingredientes = '';
+        foreach($request->ingrediente as $ingrediente){
+            $ingredientes .= ','.$ingrediente;
+        }
+        $ingredientes = substr($ingredientes, 1);
         Lanche::create([
             'nome' => $request->nome,
             'id_promocao' => $request->promocao,
-            'id_ingredientes' => $request->ingrediente,
+            'id_ingredientes' => $ingredientes,
             'valor' => $request->valor,
         ]);
 
@@ -43,17 +50,24 @@ class LancheController extends Controller
     }
 
     public function edit($id){
-        $lanches = Lanche::findOrFail($id);
-        return view('lanches.editar', ['lanche' => $lanche]);
+        $lanche = Lanche::findOrFail($id);
+        $ingredientes = Ingrediente::all();
+        $promocoes = Promocao::all();
 
+        return view('lanches.editar', ['lanche' => $lanche,'ingredientes' => $ingredientes,'promocoes' => $promocoes]);
     }
 
     public function update(Request $request){
+        $ingredientes = '';
+        foreach($request->ingrediente as $ingrediente){
+            $ingredientes .= ','.$ingrediente;
+        }
+        $ingredientes = substr($ingredientes, 1);
         $lanches = Lanche::findOrFail($request->id);
         $lanches->update([
             'nome' => $request->nome,
             'id_promocao' => $request->promocao,
-            'id_ingredientes' => $request->ingrediente,
+            'id_ingredientes' => $ingredientes,
             'valor' => $request->valor,
         ]);
 

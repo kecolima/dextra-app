@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
                     <strong>Erros:</strong>
@@ -20,15 +20,13 @@
                         $nome[$lanche->id] = '';
                     @endphp
                     @foreach($promocoes as $promocao)
-                        @if  ($promocao->id_promocao == $lanche->id)
+                        @if  ($promocao->id_promocao == $lanche->id_promocao)
                             @php
                                 $nome[$lanche->id] = $promocao->nome_promocao;
                             @endphp
                         @endif
                     @endforeach
-                    {{$nome[$lanche->id]}}
                 @endforeach
-
 
                 <h1>Lanches</h1>
                 <a class="btn btn-small btn-primary" href="/lanche/novo">Cadastrar</a>
