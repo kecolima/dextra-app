@@ -29,7 +29,7 @@ class VendaController extends Controller
 
     public function show(Request $request){
 
-        return ('todos');
+       create();
     }
 
     public function destroy($id){

@@ -40,7 +40,7 @@ Route::post('/lanche/editar/{id}',  [App\Http\Controllers\LancheController::clas
 */
 Route::get('/venda/novo',  [App\Http\Controllers\VendaController::class, 'create']);
 Route::post('/venda/novo',  [App\Http\Controllers\VendaController::class, 'store'])->name('salvar_venda');
-Route::get('/venda/ver',  [App\Http\Controllers\VendaController::class, 'show'])->name('ver_venda');
+Route::get('/venda/ver',  [App\Http\Controllers\VendaController::class, 'create'])->name('ver_venda');
 Route::get('/venda/deletar/{id}',  [App\Http\Controllers\VendaController::class, 'destroy'])->name('excluir_venda');
 Route::get('/venda/editar/{id}',  [App\Http\Controllers\VendaController::class, 'edit'])->name('editar_venda');
 Route::post('/venda/editar/{id}',  [App\Http\Controllers\VendaController::class, 'update'])->name('atualizar_venda');
