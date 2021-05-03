@@ -36,7 +36,7 @@ class LancheController extends Controller
         $lanches = Lanche::all();
         $promocao = DB::table('lanches')
             ->join('promocaos', 'lanches.id_promocao', '=', 'lanches.id')
-            ->select('promocaos.nome as nome_promocao', 'promocaos.id as id_promocao', 'lanches.id as Id')
+            ->select('promocaos.nome as nome_promocao', 'promocaos.id as id_promocao', 'lanches.id_promocao as id')
             ->get();
 
         return view('lanches.todos', ['lanches' => $lanches,'promocoes' => $promocao]);

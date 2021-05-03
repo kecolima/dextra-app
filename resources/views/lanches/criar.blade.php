@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -53,7 +46,7 @@
                                 <select required class="form-control" id="promocao" name="promocao">
                                     <option value="">Promoção</option>
                                     @foreach($promocoes as $promocao)
-                                        <option value="{{$promocao->id}}">{{$promocao->nome}}</option>
+                                        <option value="{{$promocao->nome}}">{{$promocao->nome}}</option>
                                     @endforeach
                                 </select>
                                 @error('password')
